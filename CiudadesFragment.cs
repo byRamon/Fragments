@@ -1,6 +1,7 @@
 ﻿using System;
-using Android.Content;
 using Android.OS;
+using Android.Views;
+using Android.Content;
 using Android.Widget;
 
 namespace Fragments
@@ -33,6 +34,7 @@ namespace Fragments
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+            HasOptionsMenu = true;
             if (savedInstanceState != null)
             {
                 ciudad = savedInstanceState.GetString("LLAVE_GUARDADA");
@@ -45,16 +47,24 @@ namespace Fragments
                 }
             }
         }
+        public override void OnCreateOptionsMenu(IMenu menu, MenuInflater inflater)
+        {
+            if (!menu.HasVisibleItems)
+                inflater.Inflate(Resource.Menu.menu_ciudades, menu);
+        }
         public override void OnSaveInstanceState(Bundle outState)
         {
             base.OnSaveInstanceState(outState);
             string ciudad = "";
-            for (int ind = 0; ind < ListAdapter.Count; ind++)
+            if (ListAdapter != null)
             {
-                var obj = ListAdapter.GetItem(ind);
-                ciudad += "" + (ciudad.Length > 0 ? "|" : "" ) + obj.ToString();
+                for (int ind = 0; ind < ListAdapter.Count; ind++)
+                {
+                    var obj = ListAdapter.GetItem(ind);
+                    ciudad += "" + (ciudad.Length > 0 ? "|" : "") + obj.ToString();
+                }
+                outState.PutString("LLAVE_GUARDADA", ciudad);
             }
-            outState.PutString("LLAVE_GUARDADA", ciudad);
         }
         public override void OnAttach(Context context)
         {

@@ -57,9 +57,17 @@ namespace Fragments
             base.OnAttach(context);
             estadoSeleccionado = context as IEstadoSeleccionado;
         }
+        public override void OnCreateOptionsMenu(IMenu menu, MenuInflater inflater)
+        {
+            if (!menu.HasVisibleItems)
+                inflater.Inflate(Resource.Menu.menu_from_fragment, menu);
+        }
+
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+            HasOptionsMenu = true;
+
             if (savedInstanceState != null)
             {
                 //id = -1;

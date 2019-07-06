@@ -48,16 +48,24 @@ namespace Fragments
                 }
             }
         }
+        public override void OnStart()
+        {
+            base.OnStart();
+            if (Arguments != null)
+                updateInformacion(Arguments.GetStringArray("ciudades"));
+        }
         public override void OnSaveInstanceState(Bundle outState)
         {
             base.OnSaveInstanceState(outState);
             string ciudad = "";
-            for(int ind = 0; ind < ListAdapter.Count; ind++)
-            {
-                var obj = ListAdapter.GetItem(ind);
-                ciudad += "" + (ciudad.Length > 0 ? "|" : "") + obj.ToString();
+            if (ListAdapter != null) {
+                for (int ind = 0; ind < ListAdapter.Count; ind++)
+                {
+                    var obj = ListAdapter.GetItem(ind);
+                    ciudad += "" + (ciudad.Length > 0 ? "|" : "") + obj.ToString();
+                }
+                outState.PutString("LLAVE_GUARDADA", ciudad);
             }
-            outState.PutString("LLAVE_GUARDADA", ciudad);
         }
 
     }
