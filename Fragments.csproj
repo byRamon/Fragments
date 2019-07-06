@@ -149,6 +149,21 @@
   <ItemGroup>
     <AndroidResource Include="Resources\menu\menu_ciudades.xml" />
   </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\animator\voltear_a_la_izquierda_in.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\animator\voltear_a_la_izquierda_out.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\animator\voltear_a_la_derecha_in.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\animator\voltear_a_la_derecha_out.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\values\integer.xml" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
     Other similar extension points exist, see Microsoft.Common.targets.

@@ -49,7 +49,14 @@ namespace Fragments
                 args.PutStringArray("ciudades", ciudades);
                 CiudadesFragment ciudadesFragment = new CiudadesFragment();
                 ciudadesFragment.Arguments = args;
-                SupportFragmentManager.BeginTransaction().Replace(Resource.Id.contenedorFragment, ciudadesFragment).AddToBackStack(null).Commit();
+                //SupportFragmentManager.BeginTransaction().Replace(Resource.Id.contenedorFragment, ciudadesFragment).SetTransition(Android.Support.V4.App.FragmentTransaction.TransitFragmentOpen).AddToBackStack(null).Commit();
+                //SupportFragmentManager.BeginTransaction().SetTransition(Android.Support.V4.App.FragmentTransaction.TransitExitMask).Replace(Resource.Id.contenedorFragment, ciudadesFragment).AddToBackStack(null).Commit();
+                SupportFragmentManager.BeginTransaction().SetCustomAnimations(
+                        Resource.Animator.voltear_a_la_derecha_in,
+                        Resource.Animator.voltear_a_la_derecha_out,
+                        Resource.Animator.voltear_a_la_izquierda_in,
+                        Resource.Animator.voltear_a_la_izquierda_out
+                        ).Replace(Resource.Id.contenedorFragment, ciudadesFragment).AddToBackStack(null).Commit();
             }
             else
             {
@@ -67,7 +74,15 @@ namespace Fragments
                 args.PutStringArray("ciudades", ciudades);
                 informacion = new InformacionFragment();
                 informacion.Arguments = args;
-                SupportFragmentManager.BeginTransaction().Replace(Resource.Id.contenedorFragment, informacion).AddToBackStack(null).Commit();
+                //SupportFragmentManager.BeginTransaction().Replace(Resource.Id.contenedorFragment, informacion).SetTransition(Android.Support.V4.App.FragmentTransaction.TransitFragmentOpen).AddToBackStack(null).Commit();
+                //SupportFragmentManager.BeginTransaction().SetTransition(Android.Support.V4.App.FragmentTransaction.TransitUnset).Replace(Resource.Id.contenedorFragment, contentDetallesCiudad).AddToBackStack(null).Commit();
+                SupportFragmentManager.BeginTransaction().SetCustomAnimations(
+                        Resource.Animator.voltear_a_la_derecha_in,
+                        Resource.Animator.voltear_a_la_derecha_out,
+                        Resource.Animator.voltear_a_la_izquierda_in,
+                        Resource.Animator.voltear_a_la_izquierda_out
+                        ).Replace(Resource.Id.contenedorFragment, informacion).AddToBackStack(null).Commit();
+
             }
             else
             {

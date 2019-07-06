@@ -304,6 +304,18 @@ namespace Fragments
 			// aapt resource value: 0x7f060009
 			public const int mtrl_fab_transformation_sheet_expand_spec = 2131099657;
 			
+			// aapt resource value: 0x7f06000a
+			public const int voltear_a_la_derecha_in = 2131099658;
+			
+			// aapt resource value: 0x7f06000b
+			public const int voltear_a_la_derecha_out = 2131099659;
+			
+			// aapt resource value: 0x7f06000c
+			public const int voltear_a_la_izquierda_in = 2131099660;
+			
+			// aapt resource value: 0x7f06000d
+			public const int voltear_a_la_izquierda_out = 2131099661;
+			
 			static Animator()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
@@ -3928,6 +3940,12 @@ namespace Fragments
 			
 			// aapt resource value: 0x7f0f000e
 			public const int status_bar_notification_info_maxnum = 2131689486;
+			
+			// aapt resource value: 0x7f0f000f
+			public const int voltear_tarjeta_tiempo_completo = 2131689487;
+			
+			// aapt resource value: 0x7f0f0010
+			public const int voltear_tarjeta_tiempo_medio = 2131689488;
 			
 			static Integer()
 			{
